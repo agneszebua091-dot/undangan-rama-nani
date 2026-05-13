@@ -37,9 +37,7 @@
         Kepada Yth.
       </p>
 
-      <h2 class="nama-penerima">
-        Bapak/Ibu/Saudara/i
-      </h2>
+      <h2 id="namaTamu">Tamu Undangan</h2>
 
       <button class="btn-buka" onclick="bukaUndangan()">
         Buka Undangan
@@ -304,6 +302,16 @@ if (guest) {
 <audio id="musik" loop>
   <source src="audio/musik.mp3" type="audio/mpeg">
 </audio>
+
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  const nama = params.get("to");
+
+  if (nama) {
+    document.getElementById("namaTamu").innerText =
+      decodeURIComponent(nama.replace(/\+/g, " "));
+  }
+</script>
 
 </body>
 </html>
